@@ -1,3 +1,4 @@
+import logging
 import os
 
 from django.conf import settings
@@ -13,6 +14,9 @@ OH_BASE_URL = 'https://www.openhumans.org'
 
 APP_BASE_URL = os.getenv('APP_BASE_URL', 'http://127.0.0.1:5000')
 APP_PROJ_PAGE = 'https://www.openhumans.org/activity/seeq/'
+
+# Set up logging.
+logger = logging.getLogger(__name__)
 
 
 def oh_get_member_data(token):
@@ -53,7 +57,7 @@ def oh_code_to_member(code):
                 data['access_token'])['project_member_id']
             try:
                 oh_member = OpenHumansMember.objects.get(oh_id=oh_id)
-                print('Member {} re-authorized.'.format(oh_id))
+                logger.debug('Member {} re-authorized.'.format(oh_id))
                 oh_member.access_token = data['access_token']
                 oh_member.refresh_token = data['refresh_token']
                 oh_member.token_expires = OpenHumansMember.get_expiration(
@@ -64,16 +68,16 @@ def oh_code_to_member(code):
                     access_token=data['access_token'],
                     refresh_token=data['refresh_token'],
                     expires_in=data['expires_in'])
-                print('Member {} created.'.format(oh_id))
+                logger.debug('Member {} created.'.format(oh_id))
             oh_member.save()
 
             return oh_member
         elif 'error' in req.json():
-            print('Error in token exchange: {}'.format(req.json()))
+            logger.debug('Error in token exchange: {}'.format(req.json()))
         else:
-            print('Neither token nor error info in OH response!')
+            logger.warning('Neither token nor error info in OH response!')
     else:
-        print('OH_CLIENT_SECRET or code are unavailable')
+        logger.error('OH_CLIENT_SECRET or code are unavailable')
     return None
 
 
@@ -91,7 +95,7 @@ def complete(request):
     """
     Receive user from Open Humans. Store data, start data upload task.
     """
-    print("Received user returning from Open Humans.")
+    logger.debug("Received user returning from Open Humans.")
 
     # Exchange code for token.
     # This creates an OpenHumansMember and associated User account.
@@ -103,8 +107,7 @@ def complete(request):
         # Log in the user.
         # (You may want this if connecting user with another OAuth process.)
         user = oh_member.user
-        user.backend = ('oh_data_source.auth_backends.AuthenticationBackend')
-        login(request, user)
+        login(request, user, backend='django.contrib.auth.backends.ModelBackend')
 
         # Initiate a data transfer task, then render 'complete.html'.
         xfer_to_open_humans.delay(oh_id=oh_member.oh_id)
@@ -113,5 +116,5 @@ def complete(request):
         return render(request, 'oh_data_source/complete.html',
                       context=context)
 
-    print('Invalid code exchange. User returned to starting page.')
+    logger.debug('Invalid code exchange. User returned to starting page.')
     return redirect('/')
