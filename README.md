@@ -37,7 +37,7 @@ demo code for file deletion.
 
 ### Local requirements.
 
-1. Foreman https://theforeman.org/manuals/1.13/index.html#3.InstallingForeman
+1. Foreman https://github.com/ddollar/foreman
 2. RabbitMQ https://www.rabbitmq.com/download.html
 3. pip https://pip.pypa.io/en/stable/installing/
 
