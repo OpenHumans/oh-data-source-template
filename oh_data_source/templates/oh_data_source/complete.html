@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +13,7 @@
     <!-- Uncomment the following if a favicon is added. -->
     <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
 
-    <title>Demo/Dev Nightscout/Open Humans Data Transfer</title>
+    <title>Open Humans Data Source</title>
 
     <!-- Bootstrap via CDN. -->
     <!-- Latest compiled and minified CSS -->
@@ -20,7 +22,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!-- Local CSS overrides -->
-    <link href="static/main.css" rel="stylesheet">
+    <link href="{% static "oh_data_source/main.css" %}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -55,6 +57,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Local JavaScript -->
-    <script src="static/main.js"></script>
+    <script src="{% static "oh_data_source/main.js" %}"></script>
   </body>
 </html>
