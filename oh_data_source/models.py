@@ -42,7 +42,6 @@ class OpenHumansMember(models.Model):
     access_token = models.CharField(max_length=256)
     refresh_token = models.CharField(max_length=256)
     token_expires = models.DateTimeField()
-    seeq_id = models.IntegerField(null=True)
 
     @staticmethod
     def get_expiration(expires_in):
@@ -64,7 +63,7 @@ class OpenHumansMember(models.Model):
 
     def __str__(self):
         return "<OpenHumansMember(oh_id='{}')>".format(
-            self.oh_id, self.seeq_id)
+            self.oh_id)
 
     def get_access_token(self):
         """
