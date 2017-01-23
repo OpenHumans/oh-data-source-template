@@ -33,21 +33,21 @@ other requests.
 Template code for uploading an example file to a member account, as well as
 demo code for file deletion.
 
-# Local development instructions
+## Local development instructions
 
-## Local requirements.
+### Local requirements.
 
 1. Foreman https://theforeman.org/manuals/1.13/index.html#3.InstallingForeman
 2. RabbitMQ https://www.rabbitmq.com/download.html
 3. pip https://pip.pypa.io/en/stable/installing/
 
-## Install Python requirements.
+### Install Python requirements.
 
 **Strongly recommend you use [virtualenv](https://virtualenv.pypa.io/en/stable/).**
 
 `pip install -r requirements.txt`
 
-## Set up `.env`
+### Set up `.env`
 
 Copy `env.example` to `.env`.
 
@@ -55,7 +55,7 @@ This file contains secrets and other configurations for running the app.
 When you use foreman to run this app, it will load `.env` to be environment
 variables.<br>**Keep your version SECRET! Never commit it to git.</b>**
 
-## Create Open Humans project
+### Create Open Humans project
 
 You need to create an OAuth2 project in Open Humans. Start here:
 https://www.openhumans.org/direct-sharing/projects/manage/
@@ -79,7 +79,7 @@ these to get user authorization and manage user data.
 repository. In Heroku, this data is set as environment variables. Locally,
 you can use a custom `.env`.
 
-## Initalize database and static assets.
+### Initalize database and static assets.
 
 Note: Django will use SQLite3 for local development unless you set
 `DATABASE_URL` in your `.env`.
@@ -90,8 +90,24 @@ In the project directory, run the `migrate` command with foreman:
 In the project directory, run the `collectstatic` command with foreman:
 `foreman run python manage.py collectstatic`
 
-## Run.
+### Run.
 
 `foreman start`
 
 Go to http://127.0.0.1:5000/
+
+## Heroku deployment instructions
+
+### Prerequisites and local requirements
+
+1. Create a Heroku account
+2. Install the Heroku Commant Line Interface (formally "Heroku Toolbelt"):
+https://devcenter.heroku.com/articles/heroku-cli
+
+### Log in and create your app
+
+It's common for the app to have the same name as the project slug. The name
+matters if you plan to use Heroku's default domain, which is free (e.g. `https://your-app-name.herokuapp.com`).
+
+1. `heroku login`
+2. `heroku apps:create your-app-name`
