@@ -35,19 +35,22 @@ demo code for file deletion.
 
 ## Local development instructions
 
+Django, and thus this project are built on top of `python2.7`, if you are using `python3` as your default system, you will most definately need a `virtualenv` to work with this code.
+
 ### Local requirements.
 
-1. Foreman https://github.com/ddollar/foreman
+1. Foreman https://github.com/ddollar/foreman (This package may be installed with a simple `gem install foreman`)
 2. RabbitMQ https://www.rabbitmq.com/download.html
 3. pip https://pip.pypa.io/en/stable/installing/
 
-### Install Python requirements.
+### Install Python 2.7 requirements.
 
 **Strongly recommend you use [virtualenv](https://virtualenv.pypa.io/en/stable/).**
+**Be advised you need to use a name other than the default `.env` for the python environment; we suggest `.env_$YOURPROJECT`**
 
 `pip install -r requirements.txt`
 
-### Set up `.env`
+### Set up `.env` for `foreman`
 
 Copy `env.example` to `.env`.
 
