@@ -96,7 +96,10 @@ In the project directory, run the `collectstatic` command with foreman:
 
 Go to http://127.0.0.1:5000/
 
-## Heroku deployment instructions
+## Heroku deployment notes
+
+Heroku has a lot of features and documentation. The notes below can
+help you get started &ndash; you should feel free to explore more!
 
 ### Prerequisites and local requirements
 
@@ -111,3 +114,28 @@ matters if you plan to use Heroku's default domain, which is free (e.g. `https:/
 
 1. `heroku login`
 2. `heroku apps:create your-app-name`
+
+### Configure and add add-ons
+
+Find your app in the Heroku Dashboard:  https://dashboard.heroku.com/apps
+
+Go to **"Resources tab"** and add:
+1. **CloudAMQP** (Little Lemur: Free)
+2. **Heroku Postgres** (Hobby Dev: Free)
+
+Go to **"Settings tab"** and add environment variables (as with `.env`):
+1. **OH_CLIENT_ID**
+2. **OH_CLIENT_SECRET**
+3. **OH_ACTIVITY_PAGE**
+4. **APP_BASE_URL** (e.g. `https://your-app-name.herokuapp.com` &ndash; no trailing dash!)
+5. **SECRET_KEY**
+7. **DEBUG** = true when needed
+
+### Push your code.
+
+Run this to initialize and update your code in Heroku:
+`git push heroku master`
+
+### Watch logs.
+
+`heroku logs -t`
