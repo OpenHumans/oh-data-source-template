@@ -35,7 +35,7 @@ demo code for file deletion.
 
 ## Local development instructions
 
-Django, and thus this project are built on top of `python2.7`, if you are using `python3` as your default system, you will most definately need a `virtualenv` to work with this code.
+Django, and thus this project are built on top of `python2.7`, if you are using `python3` as your default system, you will most definitely need a `virtualenv` to work with this code.
 
 ### Local requirements.
 
@@ -45,10 +45,20 @@ Django, and thus this project are built on top of `python2.7`, if you are using 
 
 ### Install Python 2.7 requirements.
 
-**Strongly recommend you use [virtualenv](https://virtualenv.pypa.io/en/stable/).**
+**It is Strongly recommend you use [virtualenv](https://virtualenv.pypa.io/en/stable/).**
 **Be advised you need to use a name other than the default `.env` for the python environment; we suggest `.env_$YOURPROJECT`**
+To create your 'virtualenv' run:
+  `virtualenv -v --python=python2.7 .env_$YOURPROJECT`
+  The two flags we are using `-v` makes the setup verbose, allowing easier debugging.
+  The second flag `--python=python2.7` guarantees that no matter how many versions of python you have on your system the 'virtualenv' will be built with the 'Django' standard `python2.7`.
 
-`pip install -r requirements.txt`
+To activate your 'virtualenv' you need to run:
+  `source .env_$YOURPROJECT/bin/activate`
+
+Next install all of the required python dependancies with:
+  `pip install -r requirements.txt`
+
+---
 
 ### Set up `.env` for `foreman`
 
@@ -56,7 +66,20 @@ Copy `env.example` to `.env`.
 
 This file contains secrets and other configurations for running the app.
 When you use foreman to run this app, it will load `.env` to be environment
-variables.<br>**Keep your version SECRET! Never commit it to git.</b>**
+variables.
+**Keep your version SECRET! Never commit it to git.**
+
+### Install `RabbitMQ` for your system
+
+Documentation for supported systems includes [Linux (apr&rpm), OS X/macOS, and Other Unixes (including BSDs), as well as Windows](https://www.rabbitmq.com/platforms.html)
+
+### Make sure that `RabbitMQ` is started
+
+This is distribution dependent, both in syntax and name.
+- With the very popular Ubuntu and other Debian based systems, it will likely be started for you after you install the package, but can also start it manually with: `sudo rabbitmq-server start`
+- With Homebrew on OS X/macOS run `brew services rabbitmq start`
+- [RabbitMQ](https://www.rabbitmq.com/) has it's control system similar to `apachectl`, The documentation is online if you would like to learn more about [rabbitmqctl](https://www.rabbitmq.com/man/rabbitmqctl.1.man.html)
+If you have other questions please refer to your [distribution reference page at `RabbitMQ`](https://www.rabbitmq.com/platforms.html)
 
 ### Create Open Humans project
 
@@ -68,7 +91,9 @@ This is what members join and authorize. Some recommended settings:
   your project as a data source. If it's left blank, Open Humans assumes
   your project doesn't plan to add data.
 2. **Set the enrollment URL to http://127.0.0.1:5000**
-3. **Set the Redirect URL to http://127.0.0.1:5000/complete**
+  **The default development setup automatically sets the Redirect URL to http://127.0.0.1:5000/complete**
+
+---
 
 Once the project is created, click on the project's name in your [project
 management page](https://www.openhumans.org/direct-sharing/projects/manage/).
@@ -82,7 +107,7 @@ these to get user authorization and manage user data.
 repository. In Heroku, this data is set as environment variables. Locally,
 you can use a custom `.env`.
 
-### Initalize database and static assets.
+### Initialize the database and static assets.
 
 Note: Django will use SQLite3 for local development unless you set
 `DATABASE_URL` in your `.env`.
@@ -92,12 +117,31 @@ In the project directory, run the `migrate` command with foreman:
 
 In the project directory, run the `collectstatic` command with foreman:
 `foreman run python manage.py collectstatic`
+**You will receive a warning message similar to:**
+```
+You have requested to collect static files at the destination
+location as specified in your settings:
+
+    development:~/your_project/staticfiles
+
+This will overwrite existing files!
+Are you sure you want to do this?
+```
+
+This is normal! You **WILL** want to overwrite the files, theres is likely no folder even created yet, so nothing stored there currently in any case.
+
+---
 
 ### Run.
 
-`foreman start`
+You can now start `foreman` in the foreground with: `foreman start`
+   Note you will receive the warning: `warnings.warn('Using settings.DEBUG leads to a memory leak, never '`. This is normal, and sadly part of the debugging process of Django.
 
-Go to http://127.0.0.1:5000/
+If you're curious as to the root cause of this [StackOverflow has a full writeup](http://stackoverflow.com/questions/4806314/disable-django-debugging-for-celery)
+
+Now point your browser to (http://127.0.0.1:5000/) you should be greated with a fairly generic openhumans page, with some of your `project` information that you added in the `foreman` .env file.
+
+---
 
 ## Heroku deployment notes
 
