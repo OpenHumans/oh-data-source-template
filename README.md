@@ -47,15 +47,21 @@ Django, and thus this project are built on top of `python2.7`, if you are using 
 
 **It is Strongly recommend you use [virtualenv](https://virtualenv.pypa.io/en/stable/).**
 **Be advised you need to use a name other than the default `.env` for the python environment; we suggest `.env_$YOURPROJECT`**
+
 To create your 'virtualenv' run:
+
   `virtualenv -v --python=python2.7 .env_$YOURPROJECT`
+
   The two flags we are using `-v` makes the setup verbose, allowing easier debugging.
+
   The second flag `--python=python2.7` guarantees that no matter how many versions of python you have on your system the 'virtualenv' will be built with the 'Django' standard `python2.7`.
 
 To activate your 'virtualenv' you need to run:
+
   `source .env_$YOURPROJECT/bin/activate`
 
 Next install all of the required python dependancies with:
+
   `pip install -r requirements.txt`
 
 ---
@@ -71,7 +77,7 @@ variables.
 
 ### Install `RabbitMQ` for your system
 
-Documentation for supported systems includes [Linux (apr&rpm), OS X/macOS, and Other Unixes (including BSDs), as well as Windows](https://www.rabbitmq.com/platforms.html)
+Documentation for supported systems includes [Linux (apt&rpm), OS X/macOS, and Other Unixes (including BSDs), as well as Windows](https://www.rabbitmq.com/platforms.html)
 
 ### Make sure that `RabbitMQ` is started
 
