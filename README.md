@@ -6,6 +6,28 @@ This is a template Django/Celery app you can use to create an OAuth2 data
 source activity for Open Humans. It takes care of some common tasks, and is
 also a demo for any project interested in using Open Humans APIs.
 
+### What does it do?
+
+When fully set up (i.e. running and connected to Open Humans as a project),
+this app can be used to do the following:
+
+* An Open Humans member authorizes the app via OAuth2
+* The app uploads a "lorem ipsum" text file to the member's Open Humans account
+
+### Why is this helpful?
+
+If you're interested in adding your own data source, this app is a functioning
+set of code to start from that accomplishes common tasks you'll face,
+including:
+
+* OAuth2 connection to Open Humans
+* Using the APIs to upload data to Open Humans
+* Using celery to asynchronously perform tasks
+
+(This last item, asynchronous processing, is useful because many data sources
+will take time to complete, e.g. a data source that must query a third party
+API to retrieve and assemble a data set.)
+
 ### Why Django instead of Flask?
 
 Because small projects sometimes grow.
@@ -35,7 +57,7 @@ demo code for file deletion.
 
 ## Local development instructions
 
-Django, and thus this project are built on top of `python2.7`, if you are using `python3` as your default system, you will most definitely need a `virtualenv` to work with this code.
+This project was created to work with `python2.7`. In general we recommend using a `virtualenv`, and if you are using `python3` as your default system, you will definitely need a `virtualenv` to work with this code.
 
 ### Local requirements.
 
