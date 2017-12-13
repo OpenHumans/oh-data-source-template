@@ -13,7 +13,6 @@ from .tasks import xfer_to_open_humans
 OH_BASE_URL = 'https://www.openhumans.org'
 
 APP_BASE_URL = os.getenv('APP_BASE_URL', 'http://127.0.0.1:5000')
-APP_PROJ_PAGE = 'https://www.openhumans.org/activity/seeq/'
 
 # Set up logging.
 logger = logging.getLogger(__name__)
