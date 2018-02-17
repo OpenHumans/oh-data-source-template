@@ -16,6 +16,9 @@ cd Python-2.7.14
 ./configure --prefix=/usr/local --enable-unicode=ucs4 --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib"
 sudo make altinstall
 
+# Cleanup python install stuff
+sudo rm -rf Python-*
+
 # Install pip2.7 for Python 2.7.14
 python2.7 -m ensurepip 
 
