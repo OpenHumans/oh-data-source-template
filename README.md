@@ -23,7 +23,7 @@
     + [Heroku setup](#heroku-setup)
     + [Creating a Heroku application](#creating-a-heroku-application)
     + [App configuration](#app-configuration)
-- [Adding dummy data](#addinƒg-dummy-data)
+- [Adding dummy data](#adding-dummy-data)
 - [Next steps](#next-steps)
     + [Under the hood](#under-the-hood)
     + [Editing the template](#editing-the-template)
