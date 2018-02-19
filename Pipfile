@@ -1,0 +1,35 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[dev-packages]
+
+
+
+[packages]
+
+django = "*"
+amqp = "*"
+argparse = "*"
+arrow = "*"
+billiard = "*"
+celery = "*"
+dj-database-url = "*"
+gunicorn = "*"
+kombu = "*"
+postgres = "*"
+"psycopg2" = "*"
+python-dateutil = "*"
+pytz = "*"
+requests = "*"
+vine = "*"
+whitenoise = "*"
+wsgiref = "*"
+
+
+[requires]
+
+python_version = "2.7"
