@@ -1,0 +1,4 @@
+image: frolvlad/alpine-python2
+tasks:
+  - init: pyenv install
+    command: gunicorn oh_data_source.wsgi --log-file -
