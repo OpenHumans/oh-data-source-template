@@ -36,7 +36,7 @@
       }
     },
     "addons": [
-        "coralogix:free",
+        "coralogix:free-30mbday",
         "heroku-redis:hobby-dev",
         {
             "plan": "heroku-postgresql",
