@@ -12,23 +12,23 @@
       },
       "OH_CLIENT_ID": {
         "description": "See http://openhumans.org/direct-sharing/projects/manage",
-        "value": "5"
+        "value": ""
       },
       "OH_CLIENT_SECRET": {
         "description": "See http://openhumans.org/direct-sharing/projects/manage",
-        "value": "5"
+        "value": ""
       },
       "OH_ACTIVITY_PAGE": {
         "description": "See http://openhumans.org/direct-sharing/projects/manage",
-        "value": "5"
+        "value": ""
       },
       "APP_BASE_URL ": {
         "description": "e.g. https://your-app-name.herokuapp.com - no trailing slash!",
-        "value": "5"
+        "value": "https://your-app-name.herokuapp.com"
       },
       "DEBUG": {
-        "description": "true when needed",
-        "value": "true"
+        "description": "Displays detailed error info for web requests.  Set False in production.",
+        "value": "false"
       },
       "HEROKU_APP": {
         "description": "If true, ALLOWED_HOSTS is set to all.",

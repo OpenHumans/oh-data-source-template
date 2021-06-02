@@ -187,6 +187,10 @@ If you don't already have a Heroku account, head to http://www.heroku.com/ to cr
 
 ### Creating a Heroku application
 
+You can either automatically create your Heroku app by clicking this button or manually, by following the steps below. 
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 Make sure you have installed the [Heroku command line interface](https://devcenter.heroku.com/articles/heroku-cli), then, from your terminal, you can log in and create your app with the following commands:
 
 `heroku login`
