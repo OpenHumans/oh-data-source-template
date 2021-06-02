@@ -1,18 +1,39 @@
 {
     "name": "Open Humans",
-    "description": "From genomes to GPS: you can explore data analyses, do citizen science, and donate data to researchers.",
+    "description": "From genomes to GPS: you can explore data analyses, do citizen science, and donate data to",
     "stack": "heroku-18",
-    "keywords": ["django"],
+    "keywords": [],
     "website": "https://www.openhumans.org/",
     "repository": "https://github.com/OpenHumans/oh-data-source-template",
     "logo": "https://www.openhumans.org/static/images/open-humans-logo-horizontal-80px.f71a97b4a07d.png",
+    "success_url": "",
     "scripts": {
-        "postdeploy": ""
+        "postdeploy": "python manage.py init_proj_config"
     },
     "env": {
-      "SECRET_TOKEN": {
-        "description": "A secret key for verifying the integrity of signed cookies.",
+      "SECRET_KEY": {
+        "description": "This is set for you and is used to encrypt data.",
         "generator": "secret"
+      },
+      "OH_CLIENT_ID": {
+        "description": "See http://openhumans.org/direct-sharing/projects/manage",
+        "value": "5"
+      },
+      "OH_CLIENT_SECRET": {
+        "description": "See http://openhumans.org/direct-sharing/projects/manage",
+        "value": "5"
+      },
+      "OH_ACTIVITY_PAGE": {
+        "description": "See http://openhumans.org/direct-sharing/projects/manage",
+        "value": "5"
+      },
+      "APP_BASE_URL ": {
+        "description": "e.g. https://your-app-name.herokuapp.com - no trailing slash!",
+        "value": "5"
+      },
+      "DEBUG": {
+        "description": "true when needed",
+        "value": "true"
       }
     },
     "addons": [
