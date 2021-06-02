@@ -217,6 +217,8 @@ Next go to the `settings` tab and add the environment variables as in the `.env`
 5. `SECRET_KEY`
 6. `DEBUG` = true when needed
 
+While in `settings`, copy the Heroku `DATABASE_URL` and add it to your local `.env` file. Run `pipenv run python manage.py migrate` to apply the migrations to the Heroku database. 
+
 Head back over to your terminal and run the following command to initialize and update your code remotely in Heroku:
 
 `git push heroku master`
