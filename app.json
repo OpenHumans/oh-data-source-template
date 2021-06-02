@@ -7,7 +7,7 @@
     "repository": "https://github.com/OpenHumans/oh-data-source-template",
     "logo": "https://www.openhumans.org/static/images/open-humans-logo-horizontal-80px.f71a97b4a07d.png",
     "scripts": {
-        "postdeploy": "python manage.py init_proj_config"
+        "postdeploy": ""
     },
     "env": {
       "SECRET_TOKEN": {
