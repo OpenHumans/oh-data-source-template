@@ -34,6 +34,10 @@
       "DEBUG": {
         "description": "true when needed",
         "value": "true"
+      },
+      "HEROKU_APP": {
+        "description": "If true, ALLOWED_HOSTS is set to all.",
+        "value": "true"
       }
     },
     "addons": [
