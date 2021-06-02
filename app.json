@@ -1,12 +1,7 @@
 {
-    "name": "Open Humans",
-    "description": "From genomes to GPS: you can explore data analyses, do citizen science, and donate data to",
     "stack": "heroku-18",
-    "keywords": [],
-    "website": "https://www.openhumans.org/",
     "repository": "https://github.com/OpenHumans/oh-data-source-template",
-    "logo": "https://www.openhumans.org/static/images/open-humans-logo-horizontal-80px.f71a97b4a07d.png",
-    "success_url": "",
+    "logo": "https://avatars.githubusercontent.com/u/3341265?s=280&v=4",
     "scripts": {
         "postdeploy": "python manage.py init_proj_config"
     },
@@ -41,6 +36,7 @@
       }
     },
     "addons": [
+        "coralogix:free",
         "heroku-redis:hobby-dev",
         {
             "plan": "heroku-postgresql",
