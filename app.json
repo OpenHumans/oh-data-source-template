@@ -36,6 +36,7 @@
       }
     },
     "addons": [
+        "cloudamqp:lemur",
         "coralogix:free-30mbday",
         "heroku-redis:hobby-dev",
         {
