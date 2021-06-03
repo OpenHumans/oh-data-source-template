@@ -1,4 +1,9 @@
 image: frolvlad/alpine-python2
+# Commands to start on workspace startup
 tasks:
-  - init: pyenv install
+  - init: gitpod-setup.sh
     command: gunicorn oh_data_source.wsgi --log-file -
+# Ports to expose on workspace startup
+ports:
+  - port: 5000
+    onOpen: open-preview
